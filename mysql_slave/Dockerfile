@@ -11,8 +11,6 @@ RUN set -x \
 	&& chown -R root:mysql /run/mysqld \
 	&& chmod 777 /tmp
 	
-WORKDIR /data
-VOLUME /data
 COPY startup.sh /startup.sh
 RUN apk add --update mariadb mariadb-client && rm -f /var/cache/apk/*
 COPY my.cnf /etc/my.cnf
