@@ -13,7 +13,9 @@ RUN set -x \
 	&& adduser -u 82 -D -S -G mysql mysql \
 	&& chmod 777 /tmp
 
-RUN apk add --update mariadb mariadb-client && rm -f /var/cache/apk/*
+RUN apk add --update mariadb mariadb-client tzdata && rm -f /var/cache/apk/* \
+&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ 
+&& echo "Asia/Shanghai" > /etc/timezone
 
 EXPOSE 3306
 CMD ["/startup.sh"]
