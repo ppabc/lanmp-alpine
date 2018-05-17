@@ -4,6 +4,7 @@ MAINTAINER ppabc <ppabc@qq.com>
 ##RUN echo "https://mirrors.aliyun.com/alpine/v3.7/community" >> /etc/apk/repositories
 
 ENV TZ='CST'
+ENV TIME_ZONE Asiz/Shanghai
 
 COPY startup.sh /startup.sh
 COPY my.cnf /etc/mysql/my.cnf
