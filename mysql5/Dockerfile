@@ -5,7 +5,7 @@ MAINTAINER ppabc <ppabc@qq.com>
 
 ENV TZ='CST'
 
-RUN && set -x \
+RUN set -x \
 && apk update && apk add tzdata \
 && apk add --update mariadb mariadb-client \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ 
