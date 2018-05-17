@@ -6,16 +6,14 @@ MAINTAINER ppabc <ppabc@qq.com>
 ENV TZ='CST'
 
 COPY startup.sh /startup.sh
-COPY my.cnf /etc/my.cnf
+COPY my.cnf /etc/mysql/my.cnf
 
-RUN apk add --update mariadb mariadb-client tzdata \
-&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ 
-&& echo "Asia/Shanghai" > /etc/timezone \
-&& rm -f /var/cache/apk/* \
-&& chmod +x /startup.sh \
-&& addgroup -g 82 -S mysql \
-&& adduser -u 82 -D -S -G mysql mysql \
-&& chmod 777 /tmp
+RUN set -x \
+	&& addgroup -g 82 -S mysql \
+	&& adduser -u 82 -D -S -G mysql mysql \
+	&& chmod 777 /tmp
+
+RUN apk add --update mariadb mariadb-client && rm -f /var/cache/apk/*
 
 EXPOSE 3306
 CMD ["/startup.sh"]
