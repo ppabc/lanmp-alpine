@@ -8,9 +8,7 @@ ENV TZ='CST'
 COPY startup.sh /startup.sh
 COPY my.cnf /etc/my.cnf
 
-RUN set -x \
-&& apk update && apk add tzdata \
-&& apk add --update mariadb mariadb-client \
+RUN apk add --update mariadb mariadb-client tzdata \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ 
 && echo "Asia/Shanghai" > /etc/timezone \
 && rm -f /var/cache/apk/* \
