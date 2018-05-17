@@ -1,5 +1,9 @@
 #!/bin/sh
 
+  MYSQL_DATABASE=${MYSQL_DATABASE:-""}
+  MYSQL_USER=${MYSQL_USER:-""}
+  MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
+
 if [ -d /data/mysql ]; then
   echo "[i] MySQL directory already present, skipping creation"
 else
@@ -12,10 +16,6 @@ else
     MYSQL_ROOT_PASSWORD=111111
     echo "[i] MySQL root Password: $MYSQL_ROOT_PASSWORD"
   fi
-
-  MYSQL_DATABASE=${MYSQL_DATABASE:-""}
-  MYSQL_USER=${MYSQL_USER:-""}
-  MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
 
   if [ ! -d "/run/mysqld" ]; then
     mkdir -p /run/mysqld
