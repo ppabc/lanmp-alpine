@@ -5,6 +5,9 @@ MAINTAINER ppabc <ppabc@qq.com>
 
 ENV TZ='CST'
 
+COPY startup.sh /startup.sh
+COPY my.cnf /etc/my.cnf
+
 RUN set -x \
 && apk update && apk add tzdata \
 && apk add --update mariadb mariadb-client \
@@ -15,9 +18,6 @@ RUN set -x \
 && addgroup -g 82 -S mysql \
 && adduser -u 82 -D -S -G mysql mysql \
 && chmod 777 /tmp
-
-COPY startup.sh /startup.sh
-COPY my.cnf /etc/my.cnf
 
 EXPOSE 3306
 CMD ["/startup.sh"]
