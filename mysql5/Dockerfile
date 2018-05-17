@@ -18,3 +18,4 @@ RUN apk --no-cache add tzdata  && \
     echo "Asia/Shanghai" > /etc/timezone 
 
 EXPOSE 3306
+CMD ["/startup.sh"]
