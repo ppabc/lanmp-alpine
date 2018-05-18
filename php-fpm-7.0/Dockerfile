@@ -3,6 +3,10 @@ MAINTAINER ppabc <ppabc@qq.com>
 ##RUN echo "https://mirrors.aliyun.com/alpine/v3.7/main" > /etc/apk/repositories
 ##RUN echo "https://mirrors.aliyun.com/alpine/v3.7/community" >> /etc/apk/repositories
 
+RUN apk --no-cache add tzdata  && \
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone 
+
 RUN apk --update add \
         libpng-dev \
 		libpng-utils \
