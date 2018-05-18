@@ -3,7 +3,6 @@ MAINTAINER ppabc <ppabc@qq.com>
 ##RUN echo "https://mirrors.aliyun.com/alpine/v3.7/main" > /etc/apk/repositories
 ##RUN echo "https://mirrors.aliyun.com/alpine/v3.7/community" >> /etc/apk/repositories
 
-
 COPY startup.sh /startup.sh
 COPY my.cnf /etc/mysql/my.cnf
 
