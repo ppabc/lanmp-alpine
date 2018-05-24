@@ -141,9 +141,7 @@ RUN apk --no-cache add tzdata  && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY hosts /etc/hosts
-COPY rewrite /etc/nginx/rewrite
+ADD install /
 
 EXPOSE 80 443
 
