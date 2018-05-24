@@ -1,8 +1,8 @@
-# lanmp-alpine
+## lanmp-alpine
 
-# alpine系统apk add方式安装lanmp环境，快速安装
+ alpine系统apk add方式安装lanmp环境，快速安装
 
-# 采用Docker镜像，可以隔离系统和程序环境，搭建环境标准化，并能快速搭建环境。
+ 采用Docker镜像，可以隔离系统和程序环境，搭建环境标准化，并能快速搭建环境。
 
 # 详细方法见 (https://aqzt.com/5436.html)
 
