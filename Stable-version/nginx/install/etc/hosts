@@ -1,0 +1,7 @@
+127.0.0.1   localhost
+::1         localhost
+
+127.0.0.1 mysql
+127.0.0.1 php
+127.0.0.1 php5
+127.0.0.1 php7
