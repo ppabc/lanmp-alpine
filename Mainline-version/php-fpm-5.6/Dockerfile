@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM aqzt/docker-alpine
 MAINTAINER ppabc <ppabc@qq.com>
 ##RUN echo "https://mirrors.aliyun.com/alpine/v3.7/main" > /etc/apk/repositories
 ##RUN echo "https://mirrors.aliyun.com/alpine/v3.7/community" >> /etc/apk/repositories
