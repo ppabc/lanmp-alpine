@@ -16,6 +16,7 @@ RUN apk --update add \
         php5-intl \
         php5-json \
         php5-mcrypt \
+        php5-mysqli \
         php5-opcache \
         php5-openssl \
         php5-pdo \
@@ -25,7 +26,11 @@ RUN apk --update add \
         php5-phar \
         php5-posix \
         php5-soap \
-        php5-xml \
+          php5-xmlreader \
+          php5-xmlrpc \
+          php5-xml \
+          php5-zip \
+          php5-zlib \
     && rm -rf /var/cache/apk/*
 
 COPY php.ini /etc/php5/conf.d/50-setting.ini
