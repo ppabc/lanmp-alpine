@@ -1,0 +1,23 @@
+FROM alpine:3.9
+MAINTAINER ppabc <ppabc@qq.com>
+##RUN echo "https://mirrors.aliyun.com/alpine/v3.9/main" > /etc/apk/repositories
+##RUN echo "https://mirrors.aliyun.com/alpine/v3.9/community" >> /etc/apk/repositories
+
+RUN apk --update add \
+		nginx \
+        nginx-mod-http-lua \
+		nginx-mod-http-lua-upstream \
+         bash \
+         curl \
+         grep \
+         less \
+         logrotate \
+         nano \
+         sudo \
+         tzdata \
+         vim \
+    && rm -rf /var/cache/apk/*
+ 
+EXPOSE 80
+ 
+CMD ["nginx", "-g", "daemon off;"]
