@@ -46,4 +46,5 @@ RUN set -ex \
                 && rm -r swoole \
                 && docker-php-ext-enable swoole \
         && apk del .phpize-deps
-COPY swoole_loader72.so /usr/local/lib/php/extensions/no-debug-non-zts-20170718/
+COPY so/*.so /usr/local/lib/php/extensions/no-debug-non-zts-20170718/
+COPY conf/*.ini /usr/local/etc/php/conf.d/
