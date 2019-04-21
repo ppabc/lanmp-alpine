@@ -65,6 +65,6 @@ RUN set -ex \
                 ) \
                 && rm -r swoole \
                 && docker-php-ext-enable swoole \
-        && apk del .phpize-deps \
+        && apk del .phpize-deps
 		
 CMD ["php-fpm7", "-F"]
