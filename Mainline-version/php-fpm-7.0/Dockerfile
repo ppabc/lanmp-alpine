@@ -23,29 +23,6 @@ RUN set -ex \
          openssl-dev \
          libstdc++ \
          librdkafka-dev \
-        # php extension: redis
-        && pecl install redis.tgz \
-        && docker-php-ext-enable redis \
-        # php extension: pdo_mysql
-        && docker-php-ext-install pdo_mysql \
-        # php extension: bcmath
-        && docker-php-ext-install bcmath \
-        # php extension: swoole
-        && cd /tmp \
-        && mkdir -p swoole \
-        && tar -xf swoole.tar.gz -C swoole --strip-components=1 \
-        && rm swoole.tar.gz \
-                && ( \
-                    cd swoole \
-                    && phpize \
-                    && ./configure --enable-async-redis --enable-mysqlnd --enable-coroutine --enable-openssl \
-                    && make -j$(nproc) && make install \
-                ) \
-                && rm -r swoole \
-                && docker-php-ext-enable swoole \
-        && apk del .phpize-deps \
-		
-RUN apk --update add \
         libpng-dev \
 		libpng-utils \
 		libpng \
@@ -68,20 +45,26 @@ RUN apk --update add \
 		php7-apcu \
 		php7-imagick \
 		php7-imagick-dev \
-        php7-openssl \
-        php7-pdo \
-        php7-mysqlnd \
-        php7-pdo_mysql \
-		php7-mysqli \
-        php7-pdo_pgsql \
-        php7-pdo_sqlite \
-        php7-phar \
-        php7-posix \
-        php7-session \
-        php7-soap \
-        php7-xml \
-		php7-simplexml \
-        php7-zip \
-    && rm -rf /var/cache/apk/*
-
+        # php extension: redis
+        && pecl install redis.tgz \
+        && docker-php-ext-enable redis \
+        # php extension: pdo_mysql
+        && docker-php-ext-install pdo_mysql \
+        # php extension: bcmath
+        && docker-php-ext-install bcmath \
+        # php extension: swoole
+        && cd /tmp \
+        && mkdir -p swoole \
+        && tar -xf swoole.tar.gz -C swoole --strip-components=1 \
+        && rm swoole.tar.gz \
+                && ( \
+                    cd swoole \
+                    && phpize \
+                    && ./configure --enable-async-redis --enable-mysqlnd --enable-coroutine --enable-openssl \
+                    && make -j$(nproc) && make install \
+                ) \
+                && rm -r swoole \
+                && docker-php-ext-enable swoole \
+        && apk del .phpize-deps \
+		
 CMD ["php-fpm7", "-F"]
