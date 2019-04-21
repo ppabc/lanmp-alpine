@@ -30,8 +30,6 @@ RUN set -ex \
         && docker-php-ext-install pdo_mysql \
         # php extension: bcmath
         && docker-php-ext-install bcmath \
-        && docker-php-ext-install gd gettext hash iconv  json mbstring mysqli \
-        && docker-php-ext-install opcache pdo pdo_mysql pdo_pgsql \
         # php extension: swoole
         && cd /tmp \
         && mkdir -p swoole \
