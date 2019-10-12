@@ -1,4 +1,4 @@
-FROM php:7.2.17-fpm-alpine3.9
+FROM php:7.3.10-fpm-alpine3.10
 LABEL maintainer="ppabc <ppabc@qq.com>" version="1.0"
 ENV SWOOLE_VERSION=4.1.2 \
     REDIS_VERSION=4.0.2
@@ -44,5 +44,3 @@ RUN set -ex \
                 && rm -r swoole \
                 && docker-php-ext-enable swoole \
         && apk del .phpize-deps
-COPY so/*.so /usr/local/lib/php/extensions/no-debug-non-zts-20170718/
-COPY conf/*.ini /usr/local/etc/php/conf.d/
