@@ -19,7 +19,7 @@ RUN set -ex \
         && apk add --no-cache libaio \
          linux-headers \
          libaio-dev libpng libpng-dev freetype freetype-dev libjpeg-turbo-dev libmcrypt-dev jpeg jpeg-dev \
-	 hiredis-dev imagemagick imagemagick-dev php7-pecl-imagick-dev php7-pecl-imagick php7-apcu \
+	 hiredis-dev imagemagick imagemagick-dev  \
          openssl-dev \
          libstdc++ \
          librdkafka-dev \
@@ -48,3 +48,5 @@ RUN set -ex \
                 && rm -r swoole \
                 && docker-php-ext-enable swoole \
         && apk del .phpize-deps
+COPY so/*.so  /usr/local/lib/php/extensions/no-debug-non-zts-20180731/
+COPY conf/*.ini /usr/local/etc/php/conf.d/
