@@ -1,4 +1,4 @@
-FROM php:7.3.10-fpm-alpine3.10
+FROM php:7.3.19-fpm-alpine3.10
 LABEL maintainer="ppabc <ppabc@qq.com>" version="1.0"
 ENV SWOOLE_VERSION=4.1.2 \
     REDIS_VERSION=4.0.2
@@ -28,7 +28,7 @@ RUN set -ex \
         && docker-php-ext-enable redis \
         # php extension: pdo_mysql
         && docker-php-ext-install pdo_mysql \
-        && docker-php-ext-install ctype json mbstring  \
+        && docker-php-ext-install ctype json mbstring zip  \
         && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
         && docker-php-ext-install  gd   \
         && docker-php-ext-install mysqli \
