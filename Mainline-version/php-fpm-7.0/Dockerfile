@@ -18,7 +18,7 @@ RUN set -ex \
         # for swoole ext
         && apk add --no-cache libaio \
          linux-headers \
-         libaio-dev libpng libpng-dev freetype freetype-dev libjpeg-turbo-dev libmcrypt-dev jpeg jpeg-dev \
+         libaio-dev libzip-dev  libpng libpng-dev freetype freetype-dev libjpeg-turbo-dev libmcrypt-dev jpeg jpeg-dev \
 	 hiredis-dev imagemagick imagemagick-dev php7-pecl-imagick-dev php7-pecl-imagick php7-apcu \
          openssl-dev \
          libstdc++ \
