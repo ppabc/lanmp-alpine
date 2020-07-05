@@ -48,5 +48,5 @@ RUN set -ex \
                 && rm -r swoole \
                 && docker-php-ext-enable swoole \
         && apk del .phpize-deps
-COPY so/*.so  /usr/local/lib/php/extensions/no-debug-non-zts-20180731/
-COPY conf/*.ini /usr/local/etc/php/conf.d/
+COPY Mainline-version/php-fpm-7.3/so/*.so  /usr/local/lib/php/extensions/no-debug-non-zts-20180731/
+COPY Mainline-version/php-fpm-7.3/conf/*.ini /usr/local/etc/php/conf.d/
