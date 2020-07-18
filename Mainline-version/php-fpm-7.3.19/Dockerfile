@@ -49,7 +49,7 @@ RUN set -ex \
                 && docker-php-ext-enable swoole \
         && apk del .phpize-deps
 
-ADD Mainline-version/php-fpm-7.3.19/install /
+ADD Mainline-version/php-fpm-7.3.19/install /install
 
 RUN /bin/cp /install/so/*.so  /usr/local/lib/php/extensions/no-debug-non-zts-20180731/  && \
     /bin/cp /install/php.ini  /usr/local/etc/php/php.ini  && \
